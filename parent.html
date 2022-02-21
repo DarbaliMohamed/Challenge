@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Frontendfunn - Bootstrap 5 Admin Dashboard Template</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+<style>
+
+      
+      li{
+      text-decoration-style:disc; 
+      }
+      header{
+        background:#333;
+        color:#fff;
+        padding:20px;
+        text-align: center;
+        border-bottom: 4px #000 solid;
+        margin-bottom: 10px;
+      }
+      #container{
+        width:90%;
+        margin:auto;
+        padding:10px;
+        
+      }
+
+      .mainCon{
+        display: flex;
+      }
+      #result,#result2{
+        width: 50%;
+      }
+
+      img{
+        width: 620px;
+        height: 600px;
+      }
+
+      .text{
+        font-size: 30px;
+      }
+      </style>
+  </head>
+  <body>
+    <!-- top navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #6610f2;">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebar"
+          aria-controls="offcanvasExample"
+        >
+          <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+        </button>
+        <a
+          class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+          href="#"
+          >Dashboard</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#topNavBar"
+          aria-controls="topNavBar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNavBar">
+          <form class="d-flex ms-auto my-3 my-lg-0">
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle ms-2"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-fill"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- top navigation bar -->
+    <!-- offcanvas -->
+
+    <!-- offcanvas -->
+
+      <div class="container-fluid mt-5 pt-3" style="background-color: #f4f5f9;">
+
+
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <div class="card m-5" style="height:100vh;">
+              <div class="card-header">
+                <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+                Statistiques en direct
+              </div>
+              <div class="card-body my-3">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <!-- <div id="slideshow-example" data-component="slideshow">
+                    <div class="slide-inside" role="list">
+                     
+                    </div>
+                  </div> -->
+
+                  <div class="mainCon" id="container">
+                    <div id="result"></div>
+                    <div id="result2"></div>
+                  </div>
+
+                <script>
+
+            $(document).ready(function(){ updateDiv();
+
+            $("#result").fadeIn(10000);
+                $("#result").fadeOut(10000);
+                $("#result2").fadeIn(10000);
+                $("#result2").fadeOut(10000);
+                
+                setInterval(function(){cache_clear()},10000);
+                    function cache_clear()
+                        {
+                
+                        window.location.reload(true);
+                        }
+
+                });
+
+                
+         function updateDiv(){
+
+		$.getJSON('http://localhost:3000/slider', function(data){
+		
+					var i=Math.floor(Math.random()*data.length);
+				
+						
+						$('#result').append('<img  src= "'+data[i].photo+'">');	
+							$('#result').append('<div class="text">'+''+data[i].firstName+'</div>');
+						
+					
+
+          $('#result2').append('<img src= "'+data[i].photo2+'">');
+          $('#result2').append('<div class="text" >'+''+data[i].lastName+'</div>');
+						
+						
+                        	});
+	 
+			 }
+	 
+</script>
+                </script>
+                  
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <script>
+        
+
+      </script>
+ <script src="parent.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+   
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap5.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
